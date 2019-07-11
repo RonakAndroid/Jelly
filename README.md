@@ -1,6 +1,6 @@
-# jellyview
+# JellyView
 
-Custom View
+Created using custom painter.  
 
 ## Getting Started
 
