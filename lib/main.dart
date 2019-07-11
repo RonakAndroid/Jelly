@@ -35,7 +35,7 @@ List<JellyConfiguration> createJellies(
         position: i, reductionRadiusFactor: 1.5 - ((i + 1) / jellyCount))
       ..rotationInAngle = 0
       ..startAngle = 0
-      ..endAngle = 180);
+      ..endAngle = 360);
   }
 
   return jellyConfigurations;

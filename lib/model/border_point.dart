@@ -5,7 +5,6 @@ class BorderPoint {
   double radius;
   MovementDirection direction;
 
-
   BorderPoint(this.dx, this.dy, this.radianAngle, this.radius, this.direction);
 }
 
