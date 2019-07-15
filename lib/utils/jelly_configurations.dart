@@ -9,7 +9,7 @@ import 'package:jellyview/utils/common.dart';
 class JellyConfiguration {
   int steps = 16;
   double radiusFactor = 4;
-  double reductionRadiusFactor = 1;
+  double reductionRadiusFactor = 1; // this param is useful when we want to create multiple jellies on top of each other and to visualise it properly, we need less radius for upper jellies comparatively smaller than the below ones.
 
   Paint fillPaint;
   Color firstColor;
@@ -29,8 +29,6 @@ class JellyConfiguration {
   double endAngle = 360.0;
   double startRadian = 0.0;
   double endRadian = 2 * pi;
-  double rotationInAngle = 0.0;
-  double rotationRadian = 0.0;
   double boundaryRadiusFactor = 1.2;
 
   // this one is in degree mean 0 to 360.
@@ -94,7 +92,6 @@ class JellyConfiguration {
     }
     minRadius = radiusOfJelly / boundaryRadiusFactor;
     maxRadius = radiusOfJelly * boundaryRadiusFactor;
-    rotationRadian = Angle.fromDegrees(rotationInAngle).radians;
     createJellyPathPoints();
     createJellyPath();
   }
@@ -122,8 +119,6 @@ class JellyConfiguration {
     for (int i = 0; i < borderPoints.length; i++) {
       BorderPoint point = borderPoints[i];
 
-      double radian = point.radianAngle + rotationRadian;
-
       bool movementInside = needRadiusDecrease(borderPoints[i]);
       double ran = Random().nextDouble() * Random().nextInt(2);
       double newRadius = 0.0;
@@ -133,8 +128,8 @@ class JellyConfiguration {
         newRadius = point.radius + ran;
       }
 
-      double xPoint = centerPointOfJelly.dx + (newRadius * cos(radian));
-      double yPoint = centerPointOfJelly.dy + (newRadius * sin(radian));
+      double xPoint = centerPointOfJelly.dx + (newRadius * cos(point.radianAngle));
+      double yPoint = centerPointOfJelly.dy + (newRadius * sin(point.radianAngle));
       MovementDirection direction;
       if (movementInside) {
         direction = MovementDirection.INWARD;
@@ -142,7 +137,7 @@ class JellyConfiguration {
         direction = MovementDirection.OUTWARD;
       }
       borderPoints[i] =
-          (BorderPoint(xPoint, yPoint, radian, newRadius, direction));
+          (BorderPoint(xPoint, yPoint, point.radianAngle, newRadius, direction));
     }
     createJellyPath();
   }

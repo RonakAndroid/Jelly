@@ -32,12 +32,8 @@ List<JellyConfiguration> createJellies(
   List<JellyConfiguration> jellyConfigurations = List();
   for (int i = 0; i < jellyCount; i++) {
     jellyConfigurations.add(JellyConfiguration(size,
-        position: i, reductionRadiusFactor: 1.5 - ((i + 1) / jellyCount))
-      ..rotationInAngle = 0
-      ..startAngle = 0
-      ..endAngle = 360);
+        position: i, reductionRadiusFactor: 1.5 - ((i + 1) / jellyCount)));
   }
-
   return jellyConfigurations;
 }
 
