@@ -2,6 +2,9 @@
 Created using custom painter.  
 ![N|Solid](demo.gif)
 
+### Description
+With help of Bazier curve, created shape from path like Jelly and with animation, made effect like animation. It can be configured.
+
 
 # LICENSE!
 Jelly is [MIT-licensed](/LICENSE).
