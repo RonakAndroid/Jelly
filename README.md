@@ -3,7 +3,7 @@ Created using custom painter.
 ![N|Solid](demo.gif)
 
 ### Description
-With help of Bezier curve, created shape from path like Jelly and with animation, made effect like animation. It can be configured.
+With help of Bezier curve, created shape from path like Jelly and with animation, made effect like animation. Parameters used in custom painter are configurable.
 
 
 # LICENSE!
